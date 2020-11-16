@@ -8,7 +8,17 @@ trigger:
 
 pool: 
   vmImage: 'ubuntu-latest'
-  name: aaa
+  name: server
+- task: Maven@3
+  inputs:
+    mavenPomFile: 'pom.xml'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    javaHomeOption: 'JDKVersion'
+    mavenVersionOption: 'Default'
+    mavenAuthenticateFeed: false
+    effectivePomSkip: false
+    sonarQubeRunAnalysis: false
 
 steps:
 - script: echo Hello, world!
