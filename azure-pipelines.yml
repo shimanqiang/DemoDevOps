@@ -8,7 +8,6 @@ trigger:
 
 pool: 
   vmImage: 'ubuntu-latest'
-  name: server
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
